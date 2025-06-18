@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 11 Arts Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="classes.css"  rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <h2>Class 11 Arts Dashboard</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="teacher-info">
+            <h3>Teacher Information</h3>
+            <div class="teacher-details">
+                <div>Name: <span>Mr. Kanubhai Hadiya</span></div>
+                <div>Allocated Class: <span>11<sup>th</sup> Arts</span></div>
+            </div>
+        </div>
+        <div class="student-section">
+            <h4>Student List</h4>
+            <div class="student-actions">
+                <input type="text" id="studentName" placeholder="Name" required>
+                <input type="text" id="enrollmentNo" placeholder="Enrollment No." required>
+                <input type="number" id="joiningYear" placeholder="Year" min="2000" max="2099" required>
+                <button onclick="addStudent()">Add Student</button>
+            </div>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Enrollment No.</th>
+                        <th>Joining Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTbody">
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Rakesh Kumar', 'A260901')">Rakesh Kumar</span></td>
+                        <td>A260901</td>
+                        <td>2026</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Pooja Sharma', 'A260902')">Pooja Sharma</span></td>
+                        <td>A260902</td>
+                        <td>2026</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Amit Joshi', 'A260903')">Amit Joshi</span></td>
+                        <td>A260903</td>
+                        <td>2026</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Nisha Verma', 'A260904')">Nisha Verma</span></td>
+                        <td>A260904</td>
+                        <td>2026</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Suresh Singh', 'A260905')">Suresh Singh</span></td>
+                        <td>A260905</td>
+                        <td>2026</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal for student documents -->
+    <div class="modal" id="docModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header" id="modalHeader"></div>
+            <ul class="doc-list" id="docList"></ul>
+            <form class="add-doc-form" onsubmit="addDocument(event)">
+                <input type="text" id="newDocName" placeholder="Document Name" required>
+                <input type="file" id="newDocFile" required>
+                <button type="submit">Add Document</button>
+            </form>
+        </div>
+    </div>
+    <script src="classes.js"></script>
+</body>
+</html>

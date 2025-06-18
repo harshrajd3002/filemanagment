@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 9 A Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="classes.css" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <h2>Class 9 A Dashboard</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="teacher-info">
+            <h3>Teacher Information</h3>
+            <div class="teacher-details">
+                <div>Name: <span>Mrs. Priya Sharma</span></div>
+                <div>Allocated Class: <span>9<sup>th</sup> A</span></div>
+            </div>
+        </div>
+        <div class="student-section">
+            <h4>Student List</h4>
+            <div class="student-actions">
+                <input type="text" id="studentName" placeholder="Name" required>
+                <input type="text" id="enrollmentNo" placeholder="Enrollment No." required>
+                <input type="number" id="joiningYear" placeholder="Year" min="2000" max="2099" required>
+                <button onclick="addStudent()">Add Student</button>
+            </div>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Enrollment No.</th>
+                        <th>Joining Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTbody">
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Rahul Verma', 'A250901')">Rahul Verma</span></td>
+                        <td>A250901</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Sneha Gupta', 'A250902')">Sneha Gupta</span></td>
+                        <td>A250902</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Arjun Singh', 'A250903')">Arjun Singh</span></td>
+                        <td>A250903</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Meera Joshi', 'A250904')">Meera Joshi</span></td>
+                        <td>A250904</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Vikas Patel', 'A250905')">Vikas Patel</span></td>
+                        <td>A250905</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Priya Yadav', 'A250906')">Priya Yadav</span></td>
+                        <td>A250906</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Rohan Mehta', 'A250907')">Rohan Mehta</span></td>
+                        <td>A250907</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Simran Kaur', 'A250908')">Simran Kaur</span></td>
+                        <td>A250908</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Aditya Kumar', 'A250909')">Aditya Kumar</span></td>
+                        <td>A250909</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="student-link" onclick="showDocuments('Neha Saini', 'A250910')">Neha Saini</span></td>
+                        <td>A250910</td>
+                        <td>2025</td>
+                        <td><button class="remove-btn" onclick="removeStudent(this)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal for student documents -->
+    <div class="modal" id="docModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header" id="modalHeader"></div>
+            <ul class="doc-list" id="docList"></ul>
+            <form class="add-doc-form" onsubmit="addDocument(event)">
+                <input type="text" id="newDocName" placeholder="Document Name" required>
+                <input type="file" id="newDocFile" required>
+                <button type="submit">Add Document</button>
+            </form>
+        </div>
+    </div>
+    <script src="classes.js"></script>
+</body>

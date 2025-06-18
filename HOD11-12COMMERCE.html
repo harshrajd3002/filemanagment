@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD OF COMMERCE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="HOD.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="nav">
+        <h2>HOD Dashboard</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="teacher-info">
+            <h3>Head of Department</h3>
+            <div class="teacher-details">
+                <div>Name: <span>Dr. Rekha Singh</span></div>
+                <div>Access: <span> Classes (11 Commerce - 12 Commerce)</span></div>
+            </div>
+            <div class="classesfolder">
+                <div class="class"><a href="class11Commerce.html" target="_blank">CLASS 11 Commerce</a></div>
+                <div class="class"><a href="class12Commerce.html" target="_blank">CLASS 12 Commerce</a></div>  
+            </div>
+        </div>
+        <div class="student-section">
+            <h4>Select a class above to view or manage students and documents.</h4>
+        </div>
+    </div>
+    <script>
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

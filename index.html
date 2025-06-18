@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | J2H File Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6a82fb;
+            --secondary: #fc5c7d;
+            --white: #fff;
+            --glass: rgba(255,255,255,0.25);
+            --shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow);
+            padding: 0;
+            z-index: 10;
+        }
+        .nav h2 {
+            margin: 0;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .nav h2 span {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        .container {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+            width: 350px;
+            padding: 40px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .login {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        label {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1.5px solid #e0e0e0;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.8);
+            transition: border 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border: 1.5px solid var(--primary);
+            outline: none;
+        }
+        .loginbtn {
+            display: flex;
+            justify-content: center;
+        }
+        .loginbtn button {
+            width: 100%;
+            padding: 12px 0;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(106,130,251,0.10);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .loginbtn button:hover {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 4px 16px rgba(252,92,125,0.13);
+            transition: all 0.2s ease-in-out;
+        }
+        .footer {
+            margin-top: 40px;
+            color: #fff;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+        @media (max-width: 500px) {
+            form {
+                width: 90vw;
+                padding: 24px 8vw;
+            }
+            .nav h2 {
+                font-size: 1.1rem;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h2>WELCOME TO <span>J2H</span> FILE MANAGEMENT SYSTEM</h2>
+    </div>
+    <div class="container">
+        <form action="/login" method="post" autocomplete="on">
+            <div class="login">Login</div>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            
+            <div class="loginbtn">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="footer">
+            &copy; 2025 J2H File Management System. All rights reserved.
+        </div>
+    </div>
+    <div class="footer">
+        <p>Design & Developed by J2H Organization</p>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate login (replace with actual login logic)
+            if (username === 'class1a' && password === '1a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class1A.html"; 
+            }
+
+            else if (username === 'class2a' && password === '2a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class2A.html"; 
+            } 
+            
+            else if (username === 'class3a' && password === '3a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class3A.html"; 
+            }
+             else if (username === 'class4a' && password === '4a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class4A.html"; 
+            } 
+            
+            else if (username === 'class5a' && password === '5a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class5A.html"; 
+            }
+             else if (username === 'class6a' && password === '6a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class6A.html"; 
+            } 
+            
+            else if (username === 'class7a' && password === '7a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class7A.html"; 
+            }
+             else if (username === 'class8a' && password === '8a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class8A.html";
+            } 
+            
+            else if (username === 'class8b' && password === '8b') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class8B.html"; 
+            }
+             else if (username === 'class9a' && password === '9a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class9A.html"; 
+            } 
+            
+            else if (username === 'class9b' && password === '9b') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class9B.html"; 
+            }
+
+             else if (username === 'class10a' && password === '10a') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class10A.html";
+            } 
+            
+            else if (username === 'class10b' && password === '10b') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class10B.html"; 
+            }
+
+            else if (username === 'class11arts' && password === '11arts') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class11Arts.html"; 
+            } 
+            
+            else if (username === 'class12arts' && password === '12arts') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class12Arts.html"; 
+            }
+
+            else if (username === 'class11commerce' && password === '11commerce') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class11Commerce.html"; 
+            } 
+            
+            else if (username === 'class12commerce' && password === '12commerce') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class12Commerce.html"; 
+            }
+
+            else if (username === 'class11science' && password === '11science') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class11Science.html"; 
+            } 
+            
+            else if (username === 'class12science' && password === '12science') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "class12Science.html"; 
+            }
+
+            else if (username === 'hod1to7' && password === '1to7') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "HOD1TO7.html"; 
+            }
+
+            else if (username === 'hod8to10' && password === '8to10') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "HOD8TO10.html"; 
+            }
+
+            else if (username === 'hodarts' && password === 'arts') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "HOD11-12ARTS.html"; 
+            }
+
+            else if (username === 'hodcommerce' && password === 'commerce') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "HOD11-12COMMERCE.html"; 
+            }
+
+            else if (username === 'hodscience' && password === 'science') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "HOD11-12SCIENCE.html"; 
+            }
+
+            else if (username === 'principal' && password === 'principal') {
+                sessionStorage.setItem("loggedInUser", username);
+                window.location.href = "principal.html"; 
+            }
+
+            else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>
